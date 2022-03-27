@@ -7,7 +7,7 @@
     "Open tasks": "タスク",
     "Notebooks": "ノートブック",
     "Settings": "設定",
-    "About": "SHIROKUMA NOTEについて",
+    "About": "LOCANOについて",
     "Save": "保存",
     "Save & Exit": "保存して終了",
     "Cancel": "キャンセル",
@@ -79,7 +79,7 @@
     "Credits": "クレジット",
     "List of contributors": "貢献者リスト",
     "List of all used libraries": "使用ライブラリのリスト",
-    "Are you sure?": "この項目を離れますか？",
+    "Are you sure?": "確認",
     "You have unsaved changes": "行った変更は保存されていません。",
     "Dropbox API key": "Dropbox API キー",
     "Required": "必須",
@@ -185,11 +185,11 @@
         "api info li 2": "アクセスタイプは **App Folder** です"
     },
     "help": {
-        "firststart title": "SHIROKUMA NOTEへようこそ",
-        "firststart import": "既にSHIROKUMA NOTEをご利用の場合、下の'import'ボタンをクリックしてその設定を取り込むことができます。",
-        "firststart next": "SHIROKUMA NOTEを初めて使う場合、'next'ボタンをクリックしてインストールを進めてください。",
+        "firststart title": "LOCANO（ロカノ）へようこそ",
+        "firststart import": "既にLOCANOをご利用の場合、「インポート」をクリックして設定を取り込むことができます。",
+        "firststart next": "LOCANOを初めて使う場合、「次へ」をクリックしてインストールを進めてください。",
         "firststart encryption": "暗号化機能を使う場合、パスワードを入力してください。",
-        "firststart sync": "SHIROKUMA NOTEはサーバにデータを保管しないので、他のデバイスでもノートを使いたい場合は同期を機能を有効にしてください。",
+        "firststart sync": "LOCANOはサーバにデータを保管しないので、他のデバイスでもノートを使いたい場合は同期を機能を有効にしてください。",
         "firststart backup": "もう少しで完了です。設定のバックアップを取れるようになりました。そして、最後のステップへ進んでください。"
     }
 }

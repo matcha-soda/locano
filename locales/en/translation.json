@@ -103,7 +103,6 @@
     "Close": "Close",
     "Hyperlink": "Hyperlink",
     "Editor": "Editor",
-    "Preview": "Preview",
     "Download": "Download",
     "Transfer everything": "Transfer everything",
     "Find in page": "Find in page",
@@ -186,9 +185,9 @@
         "api info li 2": "Type of access should be **App Folder**"
     },
     "help": {
-        "firststart title": "Welcome to Laverna",
-        "firststart import": "If you have already used Laverna before, you can import your old settings by clicking on 'import' button bellow.",
-        "firststart next": "If you have never used Laverna before, click on 'next' button to start installation process.",
+        "firststart title": "Welcome to LOCANO",
+        "firststart import": "If you have already used LOCANO before, you can import your old settings by clicking on 'import' button bellow.",
+        "firststart next": "If you have never used LOCANO before, click on 'next' button to start installation process.",
         "firststart encryption": "If you want to use encryption, please, provide encryption password.",
         "firststart sync": "Since we don't store any data on our servers, you need to enable synchronization with one of the adapters to be able to view your notes on other devices.",
         "firststart backup": "Everything is almost ready. You can download your settings backup and proceed to the last step."

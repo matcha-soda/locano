@@ -14,16 +14,16 @@ define([
     'use strict';
 
     // A hack to trick Nodejs modules not to register as RequireJS modules
-    var def    = _.clone(define.amd);
+    var def = _.clone(define.amd);
     define.amd = false;
 
-    var glob     = requireNode(window.nodeDir + 'glob'),
-        fs       = requireNode(window.nodeDir + 'graceful-fs'),
+    var glob = requireNode(window.nodeDir + 'glob'),
+        fs = requireNode(window.nodeDir + 'graceful-fs'),
         chokidar = requireNode(window.nodeDir + 'chokidar'),
         Adapter;
 
     define.amd = _.clone(def);
-    def        = undefined;
+    def = undefined;
 
     Adapter = {
 
@@ -31,7 +31,7 @@ define([
          * Since module isn't ready yet, sync to /tmp folder (for now)
          * (/tmp/laverna folder must exist)
          */
-        path: '/tmp/laverna/',
+        path: '/tmp/locano/',
 
         /**
          * Check if directories exist. If they don't, create them.
@@ -57,8 +57,7 @@ define([
             } catch (e) {
                 if (e.code === 'ENOENT') {
                     return false;
-                }
-                else {
+                } else {
                     throw e;
                 }
             }
@@ -104,8 +103,8 @@ define([
          * Save model data to the FS.
          */
         writeFile: function(module, model) {
-            var name     = module + '/' + model.id,
-                data     = JSON.stringify(_.omit(model, 'content')),
+            var name = module + '/' + model.id,
+                data = JSON.stringify(_.omit(model, 'content')),
                 promises = [
                     this._write(name + '.json', data)
                 ];
@@ -131,24 +130,23 @@ define([
 
             watcher.on('change', function(file) {
                 Adapter._read(file)
-                .then(function(data) {
+                    .then(function(data) {
 
-                    var obj = Adapter.getFileInfo(file);
+                        var obj = Adapter.getFileInfo(file);
 
-                    // The file has Markdown extension
-                    if (obj.ext === 'md') {
-                        data = {content: data, id: obj.id};
-                    }
-                    else if (obj.ext === 'json') {
-                        data = JSON.parse(data);
-                    }
+                        // The file has Markdown extension
+                        if (obj.ext === 'md') {
+                            data = { content: data, id: obj.id };
+                        } else if (obj.ext === 'json') {
+                            data = JSON.parse(data);
+                        }
 
-                    // Trigger an event
-                    Radio.trigger('fs', 'change', {
-                        storeName : obj.storeName,
-                        data      : data
+                        // Trigger an event
+                        Radio.trigger('fs', 'change', {
+                            storeName: obj.storeName,
+                            data: data
+                        });
                     });
-                });
             });
         },
 
@@ -157,14 +155,14 @@ define([
          */
         getList: function(type) {
             var defer = Q.defer(),
-                dir   = Adapter.path + (type ? type + '/' : '') + '*.*';
+                dir = Adapter.path + (type ? type + '/' : '') + '*.*';
 
             // First, read get the list of all files in a folder
             glob(dir, {}, function(err, files) {
                 Adapter.getFiles(files)
-                .then(function(data) {
-                    defer.resolve(type ? data[type] : data);
-                });
+                    .then(function(data) {
+                        defer.resolve(type ? data[type] : data);
+                    });
             });
 
             return defer.promise;
@@ -190,29 +188,29 @@ define([
             });
 
             return Q.all(promises)
-            .then(function(data) {
-                return _.object(files, data);
-            })
-            .then(function(data) {
-                return Adapter.filesToObject(data);
-            });
+                .then(function(data) {
+                    return _.object(files, data);
+                })
+                .then(function(data) {
+                    return Adapter.filesToObject(data);
+                });
         },
 
         /**
          * Get extension, type, and ID from file name.
          */
         getFileInfo: function(fileName) {
-            var key  = fileName.split('/');
+            var key = fileName.split('/');
 
             // Get a model ID
-            fileName  = _.last(key).split('.');
+            fileName = _.last(key).split('.');
 
             return {
-                ext      : fileName[1],
+                ext: fileName[1],
 
                 // Get store name (notes|notebooks|tags)
                 storeName: key[key.length - 2],
-                id       : fileName[0]
+                id: fileName[0]
             };
         },
 
@@ -226,14 +224,13 @@ define([
                 key = Adapter.getFileInfo(key);
 
                 // Separate models by their store names
-                obj[key.storeName]     = obj[key.storeName] || {};
+                obj[key.storeName] = obj[key.storeName] || {};
                 obj[key.storeName][key.id] = obj[key.storeName][key.id] || {};
 
                 // The file has Markdown extension
                 if (key.ext === 'md') {
                     obj[key.storeName][key.id].content = value;
-                }
-                else if (key.ext === 'json') {
+                } else if (key.ext === 'json') {
                     obj[key.storeName][key.id] = _.extend(
                         obj[key.storeName][key.id], JSON.parse(value)
                     );
