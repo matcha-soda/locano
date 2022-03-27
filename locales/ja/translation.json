@@ -185,11 +185,11 @@
         "api info li 2": "アクセスタイプは **App Folder** です"
     },
     "help": {
-        "firststart title": "LOCANO（ロカノ）へようこそ",
+        "firststart title": "LOCANOへようこそ",
         "firststart import": "既にLOCANOをご利用の場合、「インポート」をクリックして設定を取り込むことができます。",
-        "firststart next": "LOCANOを初めて使う場合、「次へ」をクリックしてインストールを進めてください。",
+        "firststart next": "LOCANOを初めて使う場合、「次へ」をクリックしてセットアップを進めてください。",
         "firststart encryption": "暗号化機能を使う場合、パスワードを入力してください。",
-        "firststart sync": "LOCANOはサーバにデータを保管しないので、他のデバイスでもノートを使いたい場合は同期を機能を有効にしてください。",
+        "firststart sync": "LOCANOはサーバにデータを保管しないため、他のデバイスでもノートを使いたい場合は同期を機能を有効にしてください。（Dropboxは現在ご利用いただけません）",
         "firststart backup": "もう少しで完了です。設定のバックアップを取れるようになりました。そして、最後のステップへ進んでください。"
     }
 }
